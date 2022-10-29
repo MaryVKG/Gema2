@@ -73,11 +73,11 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_instagram"
+                    android:id="@+id/nav_retiro"
                     android:title="@string/menuOcho"
                     android:icon="@drawable/ubicacion"/>
                 <item
-                    android:id="@+id/nav_whatsapp"
+                    android:id="@+id/nav_delivery"
                     android:title="@string/menuNueve"
                     android:icon="@drawable/entrega"/>
 

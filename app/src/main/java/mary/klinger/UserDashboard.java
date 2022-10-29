@@ -51,6 +51,9 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
         menuIcon = findViewById(R.id.menu_icon);
         contentView = findViewById(R.id.content);
 
+
+
+
         //Functions will be executed automatically when this activity will be created
         featuredRecycler();
         mostViewedRecycler(); 
@@ -62,6 +65,11 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
 
         
         navigationDrawer();
+
+
+
+
+
 
 
 
@@ -138,6 +146,11 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
             case  R.id.nav_login:
                 Intent intentA = new Intent(getApplicationContext(), Login.class);
                 startActivity(intentA);
+                break;
+
+            case  R.id.nav_delivery:
+                Intent intentB = new Intent(getApplicationContext(), EntregaDelivery.class);
+                startActivity(intentB);
                 break;
 
 
@@ -229,9 +242,8 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
 
         GradientDrawable gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,new int[]{0xffeff400,0xffaff600});
 
-
-
     }
+
 
 
 }

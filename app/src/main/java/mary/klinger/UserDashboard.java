@@ -153,6 +153,11 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
                 startActivity(intentB);
                 break;
 
+            case  R.id.nav_retiro:
+                Intent intentC = new Intent(getApplicationContext(), MapsTest.class);
+                startActivity(intentC);
+                break;
+
 
 
         }

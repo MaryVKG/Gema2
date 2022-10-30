@@ -9,7 +9,9 @@ import android.os.Handler;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class SplashScreen extends AppCompatActivity {
@@ -19,13 +21,16 @@ public class SplashScreen extends AppCompatActivity {
     ImageView backgroundImage;
     TextView poweredByLine;
 
+
+
+
     //Acá se crean las variables de animación
     Animation sideAnim, bottonAnim;
 
     SharedPreferences onBoardingScreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN );
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
 
@@ -33,6 +38,8 @@ public class SplashScreen extends AppCompatActivity {
         //Acá capturamos las variables
         backgroundImage = findViewById(R.id.backgound_image);
         poweredByLine = findViewById(R.id.powered_by_line);
+
+
 
 
         //Animaciones
@@ -43,6 +50,12 @@ public class SplashScreen extends AppCompatActivity {
         //Acá se cambian las animaciones
         backgroundImage.setAnimation(sideAnim);
         poweredByLine.setAnimation(bottonAnim);
+
+
+
+
+
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -71,6 +84,9 @@ public class SplashScreen extends AppCompatActivity {
         },SPLASH_TIMER);
 
     }
+
+
+
 }
 
           //-> {

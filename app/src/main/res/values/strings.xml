@@ -122,4 +122,5 @@
     <string name="email">Correo Eléctronico</string>
     <string name="phone">Teléfono</string>
     <string name="pass">Contraseña</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

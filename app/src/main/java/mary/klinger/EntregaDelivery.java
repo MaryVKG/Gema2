@@ -7,12 +7,14 @@ import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -23,20 +25,22 @@ import com.karumi.dexter.listener.single.PermissionListener;
 public class EntregaDelivery extends AppCompatActivity implements OnMapReadyCallback {
 
     boolean isPermisoAutorizado;
-    MapView mapView;
+    GoogleMap googleMap;
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrega_delivery);
 
-        mapView = findViewById(R.id.mapView);
+        
 
 
         checkMyPermission();
 
         if (isPermisoAutorizado){
-            mapView.getMapAsync(this);
-            mapView.onCreate(savedInstanceState);
+            SupportMapFragment supportMapFragment = (SupportMapFragment)  getSupportFragmentManager().findFragmentById(R.id.fragment);
+            supportMapFragment.getMapAsync(this);
+
         }
     }
 
@@ -68,4 +72,6 @@ public class EntregaDelivery extends AppCompatActivity implements OnMapReadyCall
     public void onMapReady(@NonNull GoogleMap googleMap) {
 
     }
+
+
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "598764505550",
+    "project_id": "gemma2-d5232",
+    "storage_bucket": "gemma2-d5232.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598764505550:android:2080c471c24ca995bf839f",
+        "android_client_info": {
+          "package_name": "mary.klinger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598764505550-ut30dps6p1hshl0lvqkd7816davqs9hf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeOD4wz7LiFCJGIO1sVIp19Hoo7MZELtE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598764505550-ut30dps6p1hshl0lvqkd7816davqs9hf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

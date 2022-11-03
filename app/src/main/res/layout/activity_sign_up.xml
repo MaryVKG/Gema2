@@ -42,6 +42,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/completeName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/fullname"
@@ -71,6 +72,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/completeUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/username"
@@ -102,6 +104,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/completeEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
@@ -133,6 +136,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/completePassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/pass"
@@ -187,7 +191,8 @@
             android:textColor="@color/colorSecondary"
             android:layout_marginTop="20dp"
             android:elevation="5dp"
-            android:transitionName="transition_login_btn"/>
+            android:onClick="callLoginScreen"
+            android:transitionName="transitionLogin"/>
 
     </LinearLayout>
 </ScrollView>

@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Network;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -14,12 +18,19 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class SplashScreen extends AppCompatActivity {
 
     private static int SPLASH_TIMER = 5000;
     //Se crean las variables
     ImageView backgroundImage;
     TextView poweredByLine;
+
+
+
+
 
 
 
@@ -42,6 +53,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
 
+
         //Animaciones
         sideAnim = AnimationUtils.loadAnimation(this, R.anim.side_anim);
         bottonAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_anim);
@@ -50,6 +62,7 @@ public class SplashScreen extends AppCompatActivity {
         //Acá se cambian las animaciones
         backgroundImage.setAnimation(sideAnim);
         poweredByLine.setAnimation(bottonAnim);
+
 
 
 
@@ -89,6 +102,6 @@ public class SplashScreen extends AppCompatActivity {
 
 }
 
-          //-> {
+
 
 

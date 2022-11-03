@@ -10,7 +10,10 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 public class SignUp_3rd extends AppCompatActivity {
 
@@ -18,6 +21,9 @@ public class SignUp_3rd extends AppCompatActivity {
     ImageView backkBtn;
     Button next, login;
     TextView tittleText;
+    ScrollView scrollView;
+
+    TextInputLayout phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +35,9 @@ public class SignUp_3rd extends AppCompatActivity {
         login = findViewById(R.id.signup_login_button);
         tittleText = findViewById(R.id.signup_tittle_text);
 
+        scrollView = findViewById(R.id.signUp3rdScrollView);
+        phone = findViewById(R.id.signUpPhone);
+
         backkBtn = findViewById(R.id.sigup_back_button);
         backkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +48,21 @@ public class SignUp_3rd extends AppCompatActivity {
     }
 
     public void callNextSignUpScreen(View view) {
-        Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
+
+        if(!validatePhoneNumber()){
+            return;
+        }
+
+        String fullname = getIntent().getStringExtra("fullname");
+        String email = getIntent().getStringExtra("email");
+        String username = getIntent().getStringExtra("username");
+        String password = getIntent().getStringExtra("password");
+        String genero = getIntent().getStringExtra("genero");
+        String edad = getIntent().getStringExtra("edad");
+
+
+
+        Intent intent = new Intent(getApplicationContext(), VerifyCode.class);
 
         Pair[] pairs = new Pair[4];
 
@@ -56,8 +79,37 @@ public class SignUp_3rd extends AppCompatActivity {
             startActivity(intent);
         }
 
+    }
 
+    public void callLoginScreen(View view) {
+        Intent intent = new Intent(getApplicationContext(), Login.class);
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(findViewById(R.id.signup_login_button), "transitionLogin");
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp_3rd.this, pairs);
+            startActivity(intent,options.toBundle());
+        }else {
+            startActivity(intent);
+        }
+
+    }
+
+    private boolean validatePhoneNumber() {
+        String val = phone.getEditText().getText().toString().trim();
+        String checkspaces = "{1,9}";
+        if (val.isEmpty()) {
+            phone.setError("Ingrese un número valido.");
+            return false;
+        } else if (!val.matches(checkspaces)) {
+            phone.setError("No se permiten espacios en blanco.");
+            return false;
+        } else {
+            phone.setError(null);
+            phone.setErrorEnabled(false);
+            return true;
+        }
     }
 
 }

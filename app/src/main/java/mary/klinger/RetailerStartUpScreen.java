@@ -48,7 +48,19 @@ public class RetailerStartUpScreen extends AppCompatActivity {
             startActivity(intent);
         }
 
+    }
 
+    public void callHomeScreen(View view){
+        Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(findViewById(R.id.gotoInicio), "transitiongoToInicio");
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(RetailerStartUpScreen.this, pairs);
+            startActivity(intent,options.toBundle());
+        }else {
+            startActivity(intent);
+        }
     }
 }

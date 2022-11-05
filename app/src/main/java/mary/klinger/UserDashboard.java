@@ -8,9 +8,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -28,7 +31,7 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
     RecyclerView featuredRecycler, mostViewedRecycler, categoriesRecycler;
     RecyclerView.Adapter adapter;
     private GradientDrawable gradient1, gradient2, gradient3, gradient4;
-    ImageView menuIcon;
+    ImageView menuIcon, productos;
     LinearLayout contentView;
 
 
@@ -52,6 +55,9 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
         contentView = findViewById(R.id.content);
 
 
+        productos = findViewById(R.id.dashboardEmpanadas);
+
+
 
 
         //Functions will be executed automatically when this activity will be created
@@ -65,12 +71,6 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
 
         
         navigationDrawer();
-
-
-
-
-
-
 
 
     }
@@ -123,6 +123,8 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
             super.onBackPressed();
 
     }
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -246,6 +248,22 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
         featuredRecycler.setAdapter(adapter);
 
         GradientDrawable gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,new int[]{0xffeff400,0xffaff600});
+
+    }
+
+
+    public void intentEmpanadas(View view){
+        Intent intent = new Intent(getApplicationContext(), ListadoEmpanadas.class);
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(findViewById(R.id.dashboardEmpanadas), "transitionProductos");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(UserDashboard.this, pairs);
+            startActivity(intent,options.toBundle());
+        }else {
+            startActivity(intent);
+        }
 
     }
 

@@ -161,10 +161,13 @@
 
 
                             <ImageView
+                                android:id="@+id/dashboardEmpanadas"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_marginStart="100dp"
-                                android:src="@drawable/horno" />
+                                android:onClick="intentEmpanadas"
+                                android:src="@drawable/horno"
+                                android:transitionName="transitionProductos"/>
 
                             <TextView
                                 android:layout_width="90dp"
@@ -209,10 +212,6 @@
                                 android:text="@string/aboutUs"/>
 
                         </RelativeLayout>
-
-
-
-
 
 
                     </LinearLayout>
@@ -321,7 +320,6 @@
                     android:orientation="vertical"
                     android:paddingLeft="20dp"
                     android:paddingTop="20dp"
-
                     android:paddingBottom="20dp">
 
                     <RelativeLayout

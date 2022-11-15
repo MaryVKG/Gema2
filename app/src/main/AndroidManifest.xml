@@ -19,18 +19,19 @@
         android:theme="@style/Theme.Gemma2"
         tools:targetApi="31">
         <activity
-            android:name=".EditarEmpanadas"
+            android:name=".EditarEmpanada"
             android:exported="false">
 
         </activity>
         <activity
-            android:name=".ListaDeEmpanadas"
+            android:name=".LeerEmpanada"
             android:exported="false">
 
         </activity>
         <activity
-            android:name=".ListadoEmpanadas"
+            android:name=".Crud_Empanadas"
             android:exported="false">
+
         </activity>
         <activity
             android:name=".ForgetPasswordSuccesMessage"

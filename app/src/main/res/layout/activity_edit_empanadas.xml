@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".EditarEmpanada"
+    android:orientation="vertical"
+    android:gravity="center"
     android:background="#F4CA8B"
-    tools:context=".ListadoEmpanadas">
+    >
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_marginTop="-90dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#FF9900">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/general_back_icon"
+            android:padding="15dp"
+            android:layout_centerVertical="true"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/general_search_icon"
+            android:padding="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            app:tint="@color/black" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,40 +45,23 @@
         android:orientation="vertical">
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="#FF9900">
-
-            <ImageView
-                android:id="@+id/back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/general_back_icon"
-                android:padding="15dp"
-                android:layout_centerVertical="true"
-                app:tint="@color/black" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/general_search_icon"
-                android:padding="15dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                app:tint="@color/black" />
-
-        </RelativeLayout>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Productos"
+            android:text="Editar Empanadas"
             android:textSize="39dp"
             android:textColor="@color/black"
             android:fontFamily="@font/bevan"
             android:padding="10dp"/>
 
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
             android:layout_width="381dp"
@@ -57,6 +70,7 @@
             android:layout_margin="20dp"
             app:cardBackgroundColor="#FFA45E"
             app:cardElevation="8dp">
+
 
 
             <LinearLayout
@@ -71,13 +85,52 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center"
-                    android:layout_marginTop="-90dp">
+                    android:layout_marginTop="-10dp">
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="10dp"
+                        android:layout_marginTop="9dp"
+                        android:padding="3dp"
+                        android:src="@drawable/numbers">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ID"
                         android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/black"
+                        />
+
+                    <EditText
+                        android:layout_marginStart="10dp"
+                        android:id="@+id/id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:editable="false"
+                        android:ems="10"
+                        android:textAlignment="center"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="4dp"
                         android:src="@drawable/promocion">
 
                     </ImageView>
@@ -86,18 +139,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Código"
+                        android:textColor="@color/black"
                         android:layout_marginTop="10dp"
                         android:layout_marginStart="10dp"
-                        android:textColor="@color/black"
                         />
 
                     <EditText
+                        android:layout_marginStart="6dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:layout_marginStart="10dp"
-                        android:id="@+id/et_codigo"
+                        android:id="@+id/et_nombre"
                         android:textAlignment="center"
                         />
                 </LinearLayout>
@@ -128,12 +181,12 @@
                         />
 
                     <EditText
+                        android:layout_marginStart="15dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:layout_marginStart="6dp"
-                        android:id="@+id/et_nombre"
+                        android:id="@+id/et_apellido"
                         android:textAlignment="center"
                         />
                 </LinearLayout>
@@ -164,53 +217,64 @@
                         />
 
                     <EditText
+                        android:layout_marginStart="15dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="number"
-                        android:id="@+id/et_precio"
-                        android:layout_marginStart="15dp"
+                        android:id="@+id/et_edad"
                         android:textAlignment="center"
                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="380dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center">
+
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:id="@+id/btn_editar"
+                        android:layout_marginStart="10dp"
+                        android:text="Editar"
+                        android:textColor="@color/black"
+                        />
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:id="@+id/btn_eliminar"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/black"
+                        android:text="Borrar"
+                        />
+
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:id="@+id/btn_volver"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/black"
+                        android:text="Regresar"
+                        />
+
                 </LinearLayout>
 
 
             </LinearLayout>
 
-
-            <Button
-                android:id="@+id/crearProducto"
-                android:layout_width="157dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="220dp"
-                android:backgroundTint="#FFDCA8"
-                android:elevation="5dp"
-                android:text="Crear Empanada"
-                android:textColor="@color/black"
-                android:transitionName="transition_next_btn" />
-
-            <Button
-                android:id="@+id/verProductos"
-                android:layout_width="157dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="200dp"
-                android:layout_marginTop="220dp"
-                android:backgroundTint="#FFDCA8"
-                android:elevation="5dp"
-                android:textAlignment="center"
-                android:text="Lista Empanadas"
-                android:textColor="@color/black"
-                android:transitionName="transition_next_btn" />
-
-
-
-
         </androidx.cardview.widget.CardView>
 
-
-
-
     </LinearLayout>
-</ScrollView>
+
+
+</LinearLayout>
+
+

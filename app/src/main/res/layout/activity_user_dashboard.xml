@@ -34,6 +34,8 @@
 
             <ImageView
                 android:id="@+id/menu_icon"
+
+
                 android:layout_centerVertical="true"
                 android:layout_height="40dp"
                 android:layout_width="40dp"
@@ -126,6 +128,9 @@
                             android:elevation="10dp">
 
                             <ImageView
+                                android:id="@+id/dashboardMenu"
+                                android:onClick="intentMenu"
+                                android:transitionName="transitionMenu"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_centerInParent="true"
@@ -164,9 +169,9 @@
                                 android:id="@+id/dashboardEmpanadas"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
+                                android:src="@drawable/horno"
                                 android:layout_marginStart="100dp"
                                 android:onClick="intentEmpanadas"
-                                android:src="@drawable/horno"
                                 android:transitionName="transitionProductos"/>
 
                             <TextView
@@ -198,6 +203,9 @@
                             android:layout_margin="10dp">
 
                             <ImageView
+                                android:id="@+id/dashboardNosotros"
+                                android:onClick="intentNosotros"
+                                android:transitionName="transitionNosotros"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:src="@drawable/drogoo" />
@@ -229,6 +237,9 @@
                             android:layout_margin="10dp">
 
                             <ImageView
+                                android:id="@+id/dashboardDelivery"
+                                android:onClick="intentDelivery"
+                                android:transitionName="transitionDelivery"
                                 android:layout_width="55dp"
                                 android:layout_height="55dp"
                                 android:layout_centerInParent="true"

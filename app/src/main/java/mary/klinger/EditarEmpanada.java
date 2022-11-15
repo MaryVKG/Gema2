@@ -13,61 +13,67 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
+public class EditarEmpanada extends AppCompatActivity {
 
-public class EditarEmpanadas extends AppCompatActivity {
-    EditText editarCodigo, editarNombre, editarPrecio, editarId ;
-    Button  btnEditar, btnEliminar;
-    ImageView backBtn;
+    private EditText ed_nombre,ed_apellido,ed_edad,ed_id;
+    private Button b_editar,b_eliminar,b_volver;
 
-
+    ImageView loginBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar_empanadas);
+        setContentView(R.layout.activity_edit_empanadas);
 
 
-        editarCodigo = findViewById(R.id.et_codigo);
-        editarNombre = findViewById(R.id.et_nombre);
-        editarPrecio = findViewById(R.id.et_precio);
-        editarId = findViewById(R.id.edit_id);
-    //me falta el id
 
-        backBtn = findViewById(R.id.back);
-        btnEditar  = findViewById(R.id.editarEmpanada);
-        btnEliminar = findViewById(R.id.borrarProductos);
+        loginBack = findViewById(R.id.back);
 
+        loginBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditarEmpanada.super.onBackPressed();
+            }
+        });
+        ed_nombre = findViewById(R.id.et_nombre);
+        ed_apellido = findViewById(R.id.et_apellido);
+        ed_edad = findViewById(R.id.et_edad);
+        ed_id = findViewById(R.id.id);
+
+        b_editar = findViewById(R.id.btn_editar);
+        b_eliminar = findViewById(R.id.btn_eliminar);
+        b_volver = findViewById(R.id.btn_volver);
 
         Intent i = getIntent();
 
-        String codigoID = i.getStringExtra("id").toString();
-        String codigoEmpanadita = i.getStringExtra("codigoEmpanada").toString();
-        String codigoProdcutoNamw = i.getStringExtra("nombreEmpanada").toString();
-        String codigoPrecio = i.getStringExtra("precioEmpanada").toString();
+        String et_id = i.getStringExtra("id").toString();
+        String et_nombre = i.getStringExtra("nombre").toString();
+        String et_apellido = i.getStringExtra("apellido").toString();
+        String et_edad = i.getStringExtra("edad").toString();
 
-        editarId.setText(codigoID);
-        editarCodigo.setText(codigoEmpanadita);
-        editarNombre.setText(codigoProdcutoNamw);
-        editarPrecio.setText(codigoPrecio);
+        ed_id.setText(et_id);
+        ed_nombre.setText(et_nombre);
+        ed_apellido.setText(et_apellido);
+        ed_edad.setText(et_edad);
 
-        btnEditar.setOnClickListener(new android.view.View.OnClickListener() {
+        b_editar.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
                 editar();
             }
         });
 
-        btnEliminar.setOnClickListener(new android.view.View.OnClickListener() {
+        b_eliminar.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
                 eliminar();
             }
         });
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        b_volver.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                EditarEmpanadas.super.onBackPressed();
+            public void onClick(android.view.View view) {
+                Intent i = new Intent(getApplicationContext(), LeerEmpanada.class);
+                startActivity(i);
             }
         });
     }
@@ -76,7 +82,7 @@ public class EditarEmpanadas extends AppCompatActivity {
     {
         try
         {
-            String id = editarId.getText().toString();
+            String id = ed_id.getText().toString();
 
             SQLiteDatabase db = openOrCreateDatabase("BD_EJEMPLO", Context.MODE_PRIVATE,null);
 
@@ -88,10 +94,10 @@ public class EditarEmpanadas extends AppCompatActivity {
             statement.execute();
             Toast.makeText(this,"Datos eliminados de la base de datos.",Toast.LENGTH_LONG).show();
 
-            editarCodigo.setText("");
-            editarNombre.setText("");
-            editarPrecio.setText("");
-            editarCodigo.requestFocus();
+            ed_nombre.setText("");
+            ed_apellido.setText("");
+            ed_edad.setText("");
+            ed_nombre.requestFocus();
 
         }
         catch (Exception ex)
@@ -103,10 +109,10 @@ public class EditarEmpanadas extends AppCompatActivity {
     {
         try
         {
-            String nombre = editarCodigo.getText().toString();
-            String apellido = editarNombre.getText().toString();
-            String edad = editarPrecio.getText().toString();
-            String id = editarCodigo.getText().toString();
+            String nombre = ed_nombre.getText().toString();
+            String apellido = ed_apellido.getText().toString();
+            String edad = ed_edad.getText().toString();
+            String id = ed_id.getText().toString();
 
             SQLiteDatabase db = openOrCreateDatabase("BD_EJEMPLO",Context.MODE_PRIVATE,null);
 
@@ -119,15 +125,14 @@ public class EditarEmpanadas extends AppCompatActivity {
             statement.execute();
             Toast.makeText(this,"Datos actualizados satisfactoriamente en la base de datos.",Toast.LENGTH_LONG).show();
 
-            editarCodigo.setText("");
-            editarNombre.setText("");
-            editarPrecio.setText("");
-            editarCodigo.requestFocus();
+            ed_nombre.setText("");
+            ed_apellido.setText("");
+            ed_edad.setText("");
+            ed_nombre.requestFocus();
         }
         catch (Exception ex)
         {
             Toast.makeText(this,"Error no se pudieron guardar los datos.",Toast.LENGTH_LONG).show();
         }
     }
-
 }

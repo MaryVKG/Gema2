@@ -8,12 +8,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.hbb20.CountryCodePicker;
 
 public class SignUp_3rd extends AppCompatActivity {
 
@@ -22,11 +24,12 @@ public class SignUp_3rd extends AppCompatActivity {
     Button next, login;
     TextView tittleText;
     ScrollView scrollView;
-
+    CountryCodePicker countryCodePicker;
     TextInputLayout phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sign_up3rd);
 
         //Acá se capturan
@@ -34,6 +37,7 @@ public class SignUp_3rd extends AppCompatActivity {
         next = findViewById(R.id.signup_next_button);
         login = findViewById(R.id.signup_login_button);
         tittleText = findViewById(R.id.signup_tittle_text);
+        countryCodePicker = findViewById(R.id.worldPhones);
 
         scrollView = findViewById(R.id.signUp3rdScrollView);
         phone = findViewById(R.id.signUpPhone);
@@ -47,7 +51,10 @@ public class SignUp_3rd extends AppCompatActivity {
         });
     }
 
-    public void callNextSignUpScreen(View view) {
+
+
+
+    public void callVerififyOTPScreen(View view) {
 
         if(!validatePhoneNumber()){
             return;
@@ -62,14 +69,25 @@ public class SignUp_3rd extends AppCompatActivity {
 
 
 
-        Intent intent = new Intent(getApplicationContext(), VerifyCode.class);
+        String getUserandPassword = phone.getEditText().getText().toString().trim();
+        String phoneNumber = "+"+countryCodePicker.getFullNumber()+getUserandPassword;
+        Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
 
-        Pair[] pairs = new Pair[4];
+        intent.putExtra("fullname",fullname);
+        intent.putExtra("email", email);
+        intent.putExtra("username", username);
+        intent.putExtra("password", password);
+        intent.putExtra("genero", genero);
+        intent.putExtra("edad", edad);
+        intent.putExtra("phone", phoneNumber);
+
+        Pair[] pairs = new Pair[5];
 
         pairs[0] = new Pair<View, String>(backkBtn, "transition_back_arrow_btn");
         pairs[1] = new Pair<View, String>(next, "transition_next_btn");
         pairs[2] = new Pair<View, String>(login, "transition_login_btn");
         pairs[3] = new Pair<View, String>(tittleText, "transition_tittle_text");
+        pairs[4] = new Pair<View, String>(scrollView, "transition_OTP_screen");
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
@@ -96,15 +114,22 @@ public class SignUp_3rd extends AppCompatActivity {
 
     }
 
+
+
     private boolean validatePhoneNumber() {
         String val = phone.getEditText().getText().toString().trim();
-        String checkspaces = "{1,9}";
+        String variedad = "961900294";
+
+
         if (val.isEmpty()) {
             phone.setError("Ingrese un número valido.");
             return false;
-        } else if (!val.matches(checkspaces)) {
-            phone.setError("No se permiten espacios en blanco.");
+
+        }
+        else if(!val.matches(variedad)) {
+            phone.setError("El teléfono ingresado es inválido.");
             return false;
+
         } else {
             phone.setError(null);
             phone.setErrorEnabled(false);

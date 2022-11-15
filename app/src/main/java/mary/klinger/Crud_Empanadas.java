@@ -13,38 +13,43 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
+public class Crud_Empanadas extends AppCompatActivity {
 
-public class ListadoEmpanadas extends AppCompatActivity {
+    private EditText ed_nombre,ed_apellido,ed_edad;
+    private Button b_agregar,b_ver;
+    ImageView loginBack;
 
-    EditText editarCodigo, editarNombre, editarPrecio;
-    Button btnCrear, btnVerList;
-    ImageView backBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listado_empanadas);
+        setContentView(R.layout.activity_main);
+
+        ed_nombre = findViewById(R.id.et_nombre);
+        ed_apellido = findViewById(R.id.et_apellido);
+        ed_edad = findViewById(R.id.et_edad);
+
+        b_agregar = findViewById(R.id.btn_agregar);
+        b_ver = findViewById(R.id.btn_ver);
+
+        loginBack = findViewById(R.id.back);
+
+        loginBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Crud_Empanadas.super.onBackPressed();
+            }
+        });
 
 
-
-        editarCodigo = findViewById(R.id.et_codigo);
-        editarNombre = findViewById(R.id.et_nombre);
-        editarPrecio = findViewById(R.id.et_precio);
-
-        backBtn = findViewById(R.id.back);
-        btnCrear  = findViewById(R.id.crearProducto);
-        btnVerList = findViewById(R.id.verProductos);
-
-
-        btnVerList.setOnClickListener(new View.OnClickListener() {
+        b_ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(getApplicationContext(), ListaDeEmpanadas.class);
+                Intent i = new Intent(getApplicationContext(), LeerEmpanada.class);
                 startActivity(i);
             }
         });
-        btnCrear.setOnClickListener(new View.OnClickListener() {
+        b_agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 insertar();
@@ -56,25 +61,25 @@ public class ListadoEmpanadas extends AppCompatActivity {
     {
         try
         {
-            String codigoEmpanada = editarCodigo.getText().toString();
-            String codigoNombre = editarNombre.getText().toString();
-            String codigoPrecio = editarPrecio.getText().toString();
+            String nombre = ed_nombre.getText().toString();
+            String apellido = ed_apellido.getText().toString();
+            String edad = ed_edad.getText().toString();
 
             SQLiteDatabase db = openOrCreateDatabase("BD_EJEMPLO", Context.MODE_PRIVATE,null);
             db.execSQL("CREATE TABLE IF NOT EXISTS persona(id INTEGER PRIMARY KEY AUTOINCREMENT,nombre VARCHAR,apellido VARCHAR,edad VARCHAR)");
 
             String sql = "insert into persona(nombre,apellido,edad)values(?,?,?)";
             SQLiteStatement statement = db.compileStatement(sql);
-            statement.bindString(1,codigoEmpanada);
-            statement.bindString(2,codigoNombre);
-            statement.bindString(3,codigoPrecio);
+            statement.bindString(1,nombre);
+            statement.bindString(2,apellido);
+            statement.bindString(3,edad);
             statement.execute();
             Toast.makeText(this,"Datos agregados satisfactoriamente en la base de datos.",Toast.LENGTH_LONG).show();
 
-            editarCodigo.setText("");
-            editarNombre.setText("");
-            editarPrecio.setText("");
-            editarCodigo.requestFocus();
+            ed_nombre.setText("");
+            ed_apellido.setText("");
+            ed_edad.setText("");
+            ed_nombre.requestFocus();
         }
         catch (Exception ex)
         {

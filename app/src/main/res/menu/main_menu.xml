@@ -48,7 +48,7 @@
 
     </item>
 
-    <item android:title="Productos">
+    <item android:title="Otros">
         <menu>
             <group android:checkableBehavior="single">
                 <item

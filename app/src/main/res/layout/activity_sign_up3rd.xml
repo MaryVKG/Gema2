@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SignUp_3rd"
     android:padding="30dp"
+    android:transitionName="transition_OTP_screen"
     android:id="@+id/signUp3rdScrollView">
 
     <LinearLayout
@@ -42,6 +43,7 @@
 
 
             <com.hbb20.CountryCodePicker
+                android:id="@+id/worldPhones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:ccp_autoDetectCountry="true"
@@ -89,7 +91,7 @@
             android:layout_height="wrap_content"
             android:text="@string/next_btn"
             android:backgroundTint="@color/colorSecondary"
-            android:onClick="callNextSignUpScreen"
+            android:onClick="callVerififyOTPScreen"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
             android:elevation="5dp"

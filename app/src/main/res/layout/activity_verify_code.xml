@@ -48,6 +48,7 @@
 
 
         <com.chaos.view.PinView
+            android:id="@+id/pinView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:itemCount="6"

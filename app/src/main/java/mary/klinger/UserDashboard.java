@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +13,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Pair;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -252,8 +252,9 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
     }
 
 
+    //esto es para enlazar los icons del menú con los intents de la app
     public void intentEmpanadas(View view){
-        Intent intent = new Intent(getApplicationContext(), ListadoEmpanadas.class);
+        Intent intent = new Intent(getApplicationContext(), Crud_Empanadas.class);
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View, String>(findViewById(R.id.dashboardEmpanadas), "transitionProductos");
 
@@ -267,6 +268,47 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
 
     }
 
+    public void intentNosotros(View view){
+        Intent intent = new Intent(getApplicationContext(), AllCategories.class);
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(findViewById(R.id.dashboardNosotros), "transitionNosotros");
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(UserDashboard.this, pairs);
+            startActivity(intent,options.toBundle());
+        }else {
+            startActivity(intent);
+        }
+    }
+
+
+    public void intentMenu(View view){
+        Intent intent = new Intent(getApplicationContext(),  Menu.class);
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(findViewById(R.id.dashboardMenu), "transitionMenu");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(UserDashboard.this, pairs);
+            startActivity(intent,options.toBundle());
+        }else {
+            startActivity(intent);
+        }
+    }
+
+    public void intentDelivery(View view){
+        Intent intent = new Intent(getApplicationContext(),  EntregaDelivery.class);
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(findViewById(R.id.dashboardDelivery), "transitionDelivery");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(UserDashboard.this, pairs);
+            startActivity(intent,options.toBundle());
+        }else {
+            startActivity(intent);
+        }
+    }
 
 }

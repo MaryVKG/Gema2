@@ -69,9 +69,9 @@
     <string name="menuDos">Iniciar Sesión</string>
     <string name="menuTres">Cerrar Sesión</string>
     <string name="menuCuatro">Registrarse</string>
-    <string name="menuCinco">Fritas</string>
-    <string name="menuSeis">Horno</string>
-    <string name="menuSiete">Vegana</string>
+    <string name="menuCinco">Favoritos</string>
+    <string name="menuSeis">Comprar</string>
+    <string name="menuSiete">Compras</string>
     <string name="menuOcho">Retiro</string>
     <string name="menuNueve">Delivery</string>
 
@@ -123,4 +123,7 @@
     <string name="phone">Teléfono</string>
     <string name="pass">Contraseña</string>
     <string name="title_activity_maps">MapsActivity</string>
+
+
+
 </resources>

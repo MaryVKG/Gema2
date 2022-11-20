@@ -39,82 +39,82 @@
             android:orientation="vertical"
             android:layout_marginTop="80dp">
 
+            <LinearLayout
+                android:layout_width="330dp"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
 
-            <ImageView
-                android:layout_width="55dp"
-                android:layout_height="125dp"
-                android:paddingTop="25dp"
-                android:layout_marginTop="-20dp"
-                android:src="@drawable/user">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="-2dp"
+                    android:src="@drawable/user">
 
-            </ImageView>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:background="@color/teal_200"
-                android:hint="Ingrese su correo"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="#FFBD5D"
-                app:boxStrokeWidthFocused="2dp"
-                android:layout_marginTop="-80dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                android:layout_marginEnd="3dp"
-                android:layout_marginStart="60dp"
-                >
+                </ImageView>
 
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/almendra"
-                    android:textColor="@color/black"
+                    android:text="Correo Electrónico"
+                    android:textColor="@color/lightWhite"
+                    android:layout_marginTop="-20dp"
+                    android:layout_marginStart="10dp"
+                    />
 
-                    android:layout_marginStart="2dp"/>
-
-
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <ImageView
-                android:layout_width="55dp"
-                android:layout_height="125dp"
-                android:paddingTop="25dp"
-                android:layout_marginTop="-20dp"
-                android:src="@drawable/candado">
-
-            </ImageView>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:background="@color/teal_200"
-                android:hint="Ingrese su contraseña"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="#FFBD5D"
-                app:boxStrokeWidthFocused="2dp"
-                android:layout_marginTop="-80dp"
-                app:endIconMode="password_toggle"
-                app:startIconTint="@color/black"
-                app:endIconTint="@color/black"
-                android:layout_marginStart="60dp"
-                android:layout_marginEnd="3dp"
-                >
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/idEmail"
+                    android:layout_width="281dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/almendra"
-                    android:textColor="@color/black"
-                    android:layout_marginStart="2dp"/>
+                    android:layout_marginStart="-120dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="9dp"
+                    android:ems="10"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="330dp"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="-2dp"
+                    android:src="@drawable/candado">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contraseña"
+                    android:textColor="@color/lightWhite"
+                    android:layout_marginTop="-20dp"
+                    android:layout_marginStart="10dp"
+                    />
+
+                <EditText
+                    android:id="@+id/idPass"
+                    android:layout_width="281dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-77dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:layout_marginTop="9dp"
+                    android:textAlignment="center" />
+            </LinearLayout>
 
 
 
 
-            </com.google.android.material.textfield.TextInputLayout>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -149,6 +149,7 @@
             </RelativeLayout>
             
             <Button
+                android:id="@+id/btnIniciarSession"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/login"
@@ -169,6 +170,8 @@
                 android:transitionName="transitionSignUp"/>
 
         </LinearLayout>
+
+
     </LinearLayout>
 
 </ScrollView>

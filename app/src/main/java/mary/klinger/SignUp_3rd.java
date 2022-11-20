@@ -71,7 +71,7 @@ public class SignUp_3rd extends AppCompatActivity {
 
         String getUserandPassword = phone.getEditText().getText().toString().trim();
         String phoneNumber = "+"+countryCodePicker.getFullNumber()+getUserandPassword;
-        Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
+        Intent intent = new Intent(getApplicationContext(), VerifyCode.class);
 
         intent.putExtra("fullname",fullname);
         intent.putExtra("email", email);
@@ -80,6 +80,8 @@ public class SignUp_3rd extends AppCompatActivity {
         intent.putExtra("genero", genero);
         intent.putExtra("edad", edad);
         intent.putExtra("phone", phoneNumber);
+        intent.putExtra("whatToDO", "createNewUser");
+
 
         Pair[] pairs = new Pair[5];
 
@@ -118,17 +120,14 @@ public class SignUp_3rd extends AppCompatActivity {
 
     private boolean validatePhoneNumber() {
         String val = phone.getEditText().getText().toString().trim();
-        String variedad = "961900294";
+
 
 
         if (val.isEmpty()) {
             phone.setError("Ingrese un número valido.");
             return false;
 
-        }
-        else if(!val.matches(variedad)) {
-            phone.setError("El teléfono ingresado es inválido.");
-            return false;
+
 
         } else {
             phone.setError(null);

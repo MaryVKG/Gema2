@@ -88,12 +88,6 @@
             android:required="false" />
 
         <activity
-            android:name=".SignUp_3rd"
-            android:exported="false" />
-        <activity
-            android:name=".SignUp2ndClass"
-            android:exported="false" />
-        <activity
             android:name=".SignUp"
             android:exported="false" />
         <activity

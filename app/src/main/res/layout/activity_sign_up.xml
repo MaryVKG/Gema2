@@ -5,196 +5,254 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUp"
-    android:padding="30dp">
+    android:background="@color/black">
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        android:background="#FAB247">
 
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/txtTituloRegistro"
+           android:text="Por favor rellena el formulario de registro."
+           android:layout_marginTop="30dp"
+           android:textAlignment="center"
+           android:textColor="@color/black"
+           android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
 
-        <ImageView
-            android:id="@+id/sigup_back_button"
-            android:layout_width="wrap_content"
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/txtFullname"
+           android:layout_below="@+id/txtTituloRegistro"
+           android:textColor="@color/black"
+           android:text="Nombre*"
+           android:textSize="16sp"
+           android:padding="6dp"
+           android:layout_marginTop="50dp"/>
+
+       <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/general_back_icon"
-            android:padding="5dp"
-            android:transitionName="transition_back_arrow_btn"/>
+            android:id="@+id/editTextFullName"
+            android:inputType="textPersonName"
+            android:textSize="16sp"
+           android:hint="Ingresa tu nombre"
+           android:textColorHint="@color/black"
+            android:padding="6dp"
+            android:layout_below="@+id/txtFullname"
+            android:background="@drawable/border"/>
+
+
 
         <TextView
-            android:id="@+id/signup_tittle_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtEmail"
+            android:layout_below="@+id/txtFullname"
+            android:text="Correo*"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edithTextEmail"
+            android:inputType="textEmailAddress"
+            android:hint="Ingresa tu correo"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_below="@+id/txtEmail"
+            android:background="@drawable/border"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNacimiento"
+            android:layout_below="@+id/txtEmail"
+            android:hint="Nacimiento*"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edithrTextNacimiento"
+            android:inputType="date"
+            android:hint="Ingresa tu fecha de nacimiento(dd/mm/yyyy)"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_below="@+id/txtNacimiento"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtGenero"
+            android:layout_below="@+id/txtNacimiento"
+            android:hint="Género*"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_marginTop="50dp"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/groupOfGenders"
+            android:layout_below="@+id/txtGenero">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioFemale"
+                android:text="Femenino"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:buttonTint="@color/black"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioMale"
+                android:text="Masculino"
+                android:textSize="16sp"
+                android:buttonTint="@color/black"
+                android:textColor="@color/black"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioOther"
+                android:text="Otro"
+                android:buttonTint="@color/black"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+
+        </RadioGroup>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtTelefono"
+            android:layout_below="@+id/txtGenero"
+            android:hint="Teléfono*"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edithrTextTelefono"
+            android:inputType="phone"
+            android:hint="Ingresa tu número de celular. (+569)"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_below="@+id/txtTelefono"
+            android:background="@drawable/border"/>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtContrasena"
+            android:layout_below="@+id/txtTelefono"
+            android:hint="Contraseña*"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edithTextContraseña"
+            android:inputType="textPassword"
+            android:hint="Ingresa tu contraseña"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_below="@+id/txtContrasena"
+            android:background="@drawable/border"/>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtContrasena2"
+            android:layout_below="@+id/txtContrasena"
+            android:hint="Contraseña*"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edithTextContraseña2"
+            android:inputType="textPassword"
+            android:hint="Confirma tu contraseña"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_below="@+id/txtContrasena2"
+            android:background="@drawable/border"/>
+
+
+        <Button
+            android:id="@+id/buttonRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/crear"
-            android:textColor="@color/colorSecondary"
-            android:textSize="40sp"
-            android:fontFamily="@font/abril_fatface"
-            android:textAllCaps="true"
-            android:layout_marginTop="20dp"
-            android:transitionName="transition_tittle_text"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="40dp">
-
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/completeName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/fullname"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:startIconTint="@color/colorSecondary"
-                app:hintTextColor="@color/colorSecondary"
-                android:textColorHint="@color/colorSecondary"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/colorSecondary"
-                android:layout_gravity="center"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="15dp"
-
-                app:boxStrokeWidthFocused="2dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="-55dp"
-                android:src="@drawable/registerlapiz"/>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/completeUser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/username"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:startIconTint="@color/colorSecondary"
-                app:hintTextColor="@color/colorSecondary"
-                android:textColorHint="@color/colorSecondary"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/colorSecondary"
-                app:boxStrokeWidthFocused="2dp"
-                android:layout_marginStart="53dp"
-                android:layout_marginEnd="2dp"
-                android:layout_marginTop="20dp">
-
-
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="-55dp"
-                android:src="@drawable/registerusuario"/>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/completeEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/email"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:startIconTint="@color/colorSecondary"
-                app:hintTextColor="@color/colorSecondary"
-                android:textColorHint="@color/colorSecondary"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/colorSecondary"
-                app:boxStrokeWidthFocused="2dp"
-                android:layout_marginStart="53dp"
-                android:layout_marginEnd="2dp"
-                android:layout_marginTop="20dp">
-
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="-55dp"
-                android:src="@drawable/registercorreo"/>
-
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/completePassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/pass"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:startIconTint="@color/colorSecondary"
-                app:hintTextColor="@color/colorSecondary"
-                android:textColorHint="@color/colorSecondary"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/colorSecondary"
-                app:endIconTint="@color/colorSecondary"
-                app:boxStrokeWidthFocused="2dp"
-                android:layout_marginStart="53dp"
-                android:layout_marginEnd="2dp"
-                android:layout_marginTop="20dp">
-
-
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="-55dp"
-                android:src="@drawable/registerphoneee"/>
-
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/signup_next_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/next_btn"
-            android:backgroundTint="@color/colorSecondary"
-            android:onClick="callNextSignUpScreen"
-            android:textColor="@color/black"
-            android:layout_marginTop="20dp"
-            android:elevation="5dp"
-            android:transitionName="transition_next_btn"/>
-
-        <Button
-            android:id="@+id/signup_login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/login"
+            android:layout_below="@+id/txtContrasena2"
+            android:textSize="0.10in"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
             android:backgroundTint="@color/black"
-            android:textColor="@color/colorSecondary"
-            android:layout_marginTop="20dp"
-            android:elevation="5dp"
-            android:onClick="callLoginScreen"
-            android:transitionName="transitionLogin"/>
+            android:text="Registrarse"
+            android:layout_marginTop="80dp"
+            android:textColor="@color/colorSecondary" />
+        <ProgressBar
+            android:id="@+id/progressBarRegister"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressTint="#020202"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/buttonRegistro"
+           />
 
-    </LinearLayout>
 
 
+
+
+
+
+
+    </RelativeLayout>
 </ScrollView>

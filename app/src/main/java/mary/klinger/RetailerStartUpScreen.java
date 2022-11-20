@@ -35,6 +35,19 @@ public class RetailerStartUpScreen extends AppCompatActivity {
             public void onClick(View view) {
                 vibrator.vibrate(1000);
                 Toast.makeText(RetailerStartUpScreen.this, "Botón Registro presionado", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getApplicationContext(), SignUp.class);
+                Pair[] pairs = new Pair[1];
+                pairs[0] = new Pair<View, String>(findViewById(R.id.registroBtn), "transitionSignUp");
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(RetailerStartUpScreen.this, pairs);
+                    startActivity(intent,options.toBundle());
+                }else {
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -43,6 +56,18 @@ public class RetailerStartUpScreen extends AppCompatActivity {
             public void onClick(View view) {
                 vibrator.vibrate(1000);
                 Toast.makeText(RetailerStartUpScreen.this, "Botón Login presionado", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Pair[] pairs = new Pair[1];
+                pairs[0] = new Pair<View, String>(findViewById(R.id.iniciarSesionBtn), "transitionLogin");
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(RetailerStartUpScreen.this, pairs);
+                    startActivity(intent,options.toBundle());
+                }else {
+                    startActivity(intent);
+                }
             }
         });
 
@@ -51,53 +76,26 @@ public class RetailerStartUpScreen extends AppCompatActivity {
             public void onClick(View view) {
                 vibrator.vibrate(1000);
                 Toast.makeText(RetailerStartUpScreen.this, "Botón Inicio presionado", Toast.LENGTH_SHORT).show();
+
+
+                Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
+                Pair[] pairs = new Pair[1];
+                pairs[0] = new Pair<View, String>(findViewById(R.id.gotoInicio), "transitiongoToInicio");
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(RetailerStartUpScreen.this, pairs);
+                    startActivity(intent,options.toBundle());
+                }else {
+                    startActivity(intent);
+                }
+
+
             }
         });
 
 
     }
 
-    public void callLoginScreen(View view) {
-        Intent intent = new Intent(getApplicationContext(), Login.class);
-        Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(findViewById(R.id.iniciarSesionBtn), "transitionLogin");
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(RetailerStartUpScreen.this, pairs);
-            startActivity(intent,options.toBundle());
-        }else {
-            startActivity(intent);
-        }
-
-    }
-
-    public void callSignUpScreen(View view){
-        Intent intent = new Intent(getApplicationContext(), SignUp.class);
-        Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(findViewById(R.id.registroBtn), "transitionSignUp");
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(RetailerStartUpScreen.this, pairs);
-            startActivity(intent,options.toBundle());
-        }else {
-            startActivity(intent);
-        }
-
-    }
-
-    public void callHomeScreen(View view){
-        Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
-        Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(findViewById(R.id.gotoInicio), "transitiongoToInicio");
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(RetailerStartUpScreen.this, pairs);
-            startActivity(intent,options.toBundle());
-        }else {
-            startActivity(intent);
-        }
-    }
 }
